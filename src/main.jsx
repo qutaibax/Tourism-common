@@ -3,10 +3,13 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router-dom"; // استيراد الموفر الجديد
 import "./index.css";
 import router from "./routes"; // استيراد الخريطة التي أنشأناها في مجلد routes
+// import AdminLogin from "./features/Auth/pages/AdminLogin";
+import AdminRegister from "./features/Auth/pages/AdminRegister";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/* RouterProvider هو الذي سيعرض التطبيق بناءً على خريطة المسارات */}
-    <RouterProvider router={router} />
+    {/* <RouterProvider router={router} /> */}
+    {/* <AdminLogin /> */}
+    <AdminRegister/>
   </StrictMode>
 );

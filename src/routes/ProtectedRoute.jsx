@@ -5,7 +5,7 @@ const ProtectedRoute = () => {
     const isAuthenticated = true; 
 
     if (!isAuthenticated) {
-        return <Navigate to="/login" replace />;
+        return <Navigate to="/register" replace />;
     }
 
     // إذا كان مسجلاً، اترك البوابة مفتوحة ليمر "الأبناء" (Children)

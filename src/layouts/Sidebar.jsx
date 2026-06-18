@@ -61,21 +61,7 @@ export default function Sidebar() {
         </nav>
       </div>
 
-      {/* أداة سحرية أسفل السايدبار للتبديل بين الأدمنز واختبار الكود بنجاح */}
-      <div className="p-4 border-t border-slate-800 bg-slate-900/30">
-        <div className="flex items-center gap-2 text-xs font-bold text-slate-400 mb-2">
-          <ShieldAlert size={14} className="text-red-500" />
-          <span>Switch Role (Testing)</span>
-        </div>
-        <select
-          value={adminType}
-          onChange={(e) => setAdminType(e.target.value)}
-          className="w-full bg-slate-950 border border-slate-800 text-slate-300 rounded-lg p-2 text-xs outline-none focus:border-red-500 transition"
-        >
-          <option value="hotel">🏨 Hotel Manager</option>
-          <option value="restaurant">🍔 Restaurant Manager</option>
-        </select>
-      </div>
+  
     </div>
   );
 }

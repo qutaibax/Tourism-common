@@ -11,7 +11,8 @@ const hotelNavigation = [
 ];
 
 const restaurantNavigation = [
-  { path: "/dashboard", label: "Dashboard", icon: LayoutDashboard, end: true },
+  { path: "/restaurants/dashboard", label: "Dashboard", icon: LayoutDashboard, end: true },
+  { path: "/restaurants/details", label: "Details", icon: LayoutDashboard, end: true },
   { path: "/restaurants", label: "All Restaurants", icon: Utensils, end: true },
   { path: "/restaurants/add", label: "Add Restaurant", icon: Plus, end: false },
 ];

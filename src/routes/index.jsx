@@ -4,6 +4,9 @@ import AdminLayout from "../layouts/AdminLayout";
 import AddHotelForm from "../features/hotels/pages/AddHotel";
 import AddRoomForm from "../features/hotels/pages/AddRoom";
 import AddRestaurant from "../features/restaurants/pages/AddResturant";
+import RestaurantDetailsAdmin from "../features/restaurants/pages/RestaurantDetailsAdmin";
+import AdminRegister from "../features/Auth/pages/AdminRegister";
+import AdminLogin from "../features/Auth/pages/AdminLogin";
 // مكون مؤقت للعرض فقط
 const Placeholder = ({ title }) => (
   <div style={{ padding: "20px" }}>
@@ -13,7 +16,6 @@ const Placeholder = ({ title }) => (
 
 const router = createBrowserRouter([
   {
-    
     path: "/",
     element: <ProtectedRoute />,
     children: [
@@ -42,12 +44,20 @@ const router = createBrowserRouter([
           { path: "flights", element: <Placeholder title="Flights Admin" /> },
           { path: "cars", element: <Placeholder title="Cars Admin" /> },
           {
-        path: "restaurants",
-        children: [
-          { index: true,element: <Placeholder title="Restaurants Admin" /> }, // يفتح عند /restaurants
-          { path: "add", element: <AddRestaurant/> },           // يفتح عند /restaurants/add
-        ],
-      },
+            path: "restaurants",
+            children: [
+              {
+                index: true,
+                element: <Placeholder title="Restaurants Admin" />,
+              }, // يفتح عند /restaurants
+              { path: "add", element: <AddRestaurant /> }, // يفتح عند /restaurants/add
+              { path: "details", element: <RestaurantDetailsAdmin /> },
+              {
+                path: "dashboard",
+                element: <Placeholder title="Restaurant Dashboard" />,
+              },
+            ],
+          },
           { path: "superadmin", element: <Placeholder title="Super Admin" /> },
         ],
       },
@@ -55,7 +65,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <div>Login Page</div>,
+    element: <AdminLogin />,
+  },
+  {
+    path: "/register",
+    element: <AdminRegister />,
   },
 ]);
 
