@@ -13,8 +13,6 @@ import {
 import { createRestaurant } from "../services/restaurantService";
 
 export default function AddRestaurant() {
-
-  
   // حاله الحقول (Form States)
   const [name, setName] = useState("");
   const [type, setType] = useState("");
@@ -27,8 +25,6 @@ export default function AddRestaurant() {
   const [description, setDescription] = useState("");
   const [fileName, setFileName] = useState("");
   const [types, setTypes] = useState([]);
-
- 
 
   // الحماية من الأرقام السالبة أو فوق 5 في حقل التقييم
   const handleRateChange = (value) => {
@@ -50,7 +46,7 @@ export default function AddRestaurant() {
   };
   const restaurantData = {
     name: name,
-    type_id: type,
+    restaurant_type_id: type,
     city_name: city,
     location: location,
     phone_number: phone,
@@ -72,7 +68,7 @@ export default function AddRestaurant() {
       alert("❌ Failed to create restaurant");
     }
   };
-   useEffect(() => {
+  useEffect(() => {
     const fetchTypes = async () => {
       try {
         const res = await fetch("http://127.0.0.1:8000/api/types");
@@ -304,8 +300,6 @@ export default function AddRestaurant() {
             </button>
           </div>
         </div>
-
-        
       </form>
     </div>
   );

@@ -1,15 +1,22 @@
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = () => {
-    
-    const isAuthenticated = true; 
+function ProtectedRoute({ children, allowedRole }) {
+  const token = localStorage.getItem("token");
+  const userRole = localStorage.getItem("AdminRole"); 
 
-    if (!isAuthenticated) {
-        return <Navigate to="/register" replace />;
-    }
 
-    // إذا كان مسجلاً، اترك البوابة مفتوحة ليمر "الأبناء" (Children)
-    return <Outlet />;
-};
+  if (!token) {
+    console.log("تم الطرد بسبب عدم وجود توكن");
+    return <Navigate to="/login" replace />;
+  }
+
+  
+  if (allowedRole && userRole !== allowedRole) {
+    console.log("تم الطرد بسبب عدم تطابق الصلاحية!");
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
+}
 
 export default ProtectedRoute;

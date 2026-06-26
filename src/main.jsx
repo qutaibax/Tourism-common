@@ -8,8 +8,8 @@ import AdminRegister from "./features/Auth/pages/AdminRegister";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/* <RouterProvider router={router} /> */}
+    <RouterProvider router={router} />
     {/* <AdminLogin /> */}
-    <AdminRegister/>
+    {/* <AdminRegister/> */}
   </StrictMode>
 );

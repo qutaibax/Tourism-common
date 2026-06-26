@@ -3,10 +3,12 @@ import Password from "../components/Password";
 import Email from "../components/Email";
 import Header from "../components/Header";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import api from "../services/AuthApi";
 
 export default function AdminLogin() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -24,10 +26,25 @@ export default function AdminLogin() {
     try {
       const response = await api.post("/login", formData);
       alert("log in successfully");
+      console.log(response.data.token);
+
       const token = response.data.token;
-      localStorage.setItem("token",token);
-    } catch(error) {
-      console.log(error)
+      const role = response.data.admin.company_type.type_name;
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("AdminRole", role);
+
+      if (role === "super") {
+        navigate("/super");
+      } else if (role === "hotel") {
+        navigate("/hotel");
+      } else if (role === "resturant") {
+        navigate("/restaurants");
+      } else {
+        navigate("/unauthorized"); // صفحة تخبره أنه ليس لديه صلاحية
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
