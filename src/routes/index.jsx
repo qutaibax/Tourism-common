@@ -7,6 +7,7 @@ import AddRestaurant from "../features/restaurants/pages/AddResturant";
 import RestaurantDetailsAdmin from "../features/restaurants/pages/RestaurantDetailsAdmin";
 import AdminRegister from "../features/Auth/pages/AdminRegister";
 import AdminLogin from "../features/Auth/pages/AdminLogin";
+import AddTrip from "../features/superadmin/pages/AddTrip";
 
 const Placeholder = ({ title }) => (
   <div style={{ padding: "20px" }}>
@@ -73,7 +74,7 @@ const router = createBrowserRouter([
         
         ],
       },
-      { path: "superadmin", element: <Placeholder title="Super Admin" /> },
+      { path: "superadmin", element:<AddTrip/> },
     ],
   },
 
